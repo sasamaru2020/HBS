@@ -5,20 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>HBS Skin Editor | ほぼ100円ショップ</title>
   <meta name="description" content="VRChatアバター向けの肌Material作成に特化したUnity Editor拡張、HBS Skin Editorの紹介ページです。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800;900&family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap" rel="stylesheet">
   <style>
     :root {
-      --ink: #132235;
-      --ink-soft: #435268;
-      --paper: #fffaf4;
+      --ink: #18273a;
+      --ink-soft: #5d5964;
+      --paper: #fff8ef;
       --white: #ffffff;
-      --coral: #ff8178;
-      --sun: #ffc861;
-      --cocoa: #9a7a68;
-      --mint: #66c4bb;
-      --line: rgba(19, 34, 53, 0.14);
-      --shadow: 0 18px 48px rgba(19, 34, 53, 0.13);
+      --coral: #ff8f86;
+      --sun: #ffd66e;
+      --cocoa: #a98776;
+      --mint: #76cfc6;
+      --line: rgba(24, 39, 58, 0.13);
+      --shadow: 0 14px 34px rgba(24, 39, 58, 0.11);
       --radius: 8px;
-      font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", "Noto Sans JP", system-ui, sans-serif;
+      --font-body: "Zen Maru Gothic", "M PLUS Rounded 1c", "Hiragino Maru Gothic ProN", "Yu Gothic", "Hiragino Kaku Gothic ProN", system-ui, sans-serif;
+      --font-display: "M PLUS Rounded 1c", "Zen Maru Gothic", "Yu Gothic", system-ui, sans-serif;
+      font-family: var(--font-body);
     }
 
     * {
@@ -35,6 +40,8 @@
       background: var(--paper);
       line-height: 1.75;
       letter-spacing: 0;
+      font-feature-settings: "palt" 1;
+      text-rendering: optimizeLegibility;
     }
 
     img {
@@ -90,7 +97,7 @@
     }
 
     .brand-title {
-      font-weight: 900;
+      font-weight: 800;
       font-size: 15px;
       line-height: 1.2;
       white-space: nowrap;
@@ -109,7 +116,7 @@
       flex-wrap: wrap;
       justify-content: flex-end;
       font-size: 13px;
-      font-weight: 800;
+      font-weight: 700;
     }
 
     .nav a {
@@ -129,7 +136,7 @@
       overflow: hidden;
       border-bottom: 1px solid var(--line);
       background:
-        linear-gradient(90deg, rgba(255, 250, 244, 0.98), rgba(255, 250, 244, 0.72) 52%, rgba(255, 250, 244, 0.42)),
+        linear-gradient(90deg, rgba(255, 248, 239, 0.99), rgba(255, 248, 239, 0.74) 52%, rgba(255, 248, 239, 0.46)),
         url("assets/hbs-logo.png") right 7vw center / min(56vw, 720px) auto no-repeat,
         var(--paper);
     }
@@ -183,7 +190,7 @@
       background: rgba(255, 255, 255, 0.74);
       color: var(--ink-soft);
       font-size: 13px;
-      font-weight: 800;
+      font-weight: 700;
     }
 
     .eyebrow::before {
@@ -200,9 +207,10 @@
       margin: 22px 0 18px;
       max-width: 840px;
       font-size: clamp(44px, 8vw, 112px);
-      line-height: 0.96;
+      line-height: 1.02;
       letter-spacing: 0;
-      font-weight: 950;
+      font-family: var(--font-display);
+      font-weight: 900;
     }
 
     .hero-lead {
@@ -210,7 +218,19 @@
       margin: 0 0 30px;
       color: var(--ink-soft);
       font-size: clamp(17px, 2.1vw, 24px);
-      font-weight: 700;
+      font-weight: 500;
+    }
+
+    .hand-note {
+      max-width: 640px;
+      margin: -8px 0 30px;
+      color: rgba(93, 89, 100, 0.88);
+      font-size: 14px;
+      font-weight: 500;
+      background: rgba(255, 255, 255, 0.68);
+      border-left: 4px solid var(--coral);
+      padding: 10px 14px;
+      border-radius: 0 var(--radius) var(--radius) 0;
     }
 
     .hero-actions {
@@ -231,8 +251,8 @@
       border-radius: var(--radius);
       background: var(--ink);
       color: var(--white);
-      font-weight: 900;
-      box-shadow: 5px 5px 0 var(--sun);
+      font-weight: 800;
+      box-shadow: 4px 4px 0 var(--sun);
       transition: transform 160ms ease, box-shadow 160ms ease;
     }
 
@@ -244,7 +264,7 @@
     .button.secondary {
       background: var(--white);
       color: var(--ink);
-      box-shadow: 5px 5px 0 rgba(255, 129, 120, 0.72);
+      box-shadow: 4px 4px 0 rgba(255, 143, 134, 0.66);
     }
 
     .hero-points {
@@ -260,8 +280,8 @@
       background: rgba(255, 255, 255, 0.82);
       padding: 14px 16px;
       font-size: 14px;
-      font-weight: 800;
-      box-shadow: 0 8px 20px rgba(19, 34, 53, 0.06);
+      font-weight: 700;
+      box-shadow: 3px 4px 0 rgba(24, 39, 58, 0.06);
     }
 
     .section {
@@ -289,8 +309,8 @@
     .label {
       color: var(--coral);
       font-size: 13px;
-      font-weight: 950;
-      text-transform: uppercase;
+      font-weight: 800;
+      text-transform: none;
     }
 
     h2 {
@@ -298,14 +318,15 @@
       font-size: clamp(30px, 5vw, 58px);
       line-height: 1.08;
       letter-spacing: 0;
-      font-weight: 950;
+      font-family: var(--font-display);
+      font-weight: 800;
     }
 
     .section-copy {
       margin: 0;
       color: var(--ink-soft);
       font-size: 17px;
-      font-weight: 650;
+      font-weight: 500;
     }
 
     .overview {
@@ -319,7 +340,7 @@
       border: 2px solid var(--ink);
       border-radius: var(--radius);
       background: #27313f;
-      box-shadow: var(--shadow);
+      box-shadow: var(--shadow), 6px 6px 0 rgba(255, 214, 110, 0.52);
       overflow: hidden;
     }
 
@@ -331,7 +352,7 @@
       background: #171f2a;
       color: #e9eef6;
       font-size: 13px;
-      font-weight: 900;
+      font-weight: 800;
     }
 
     .traffic {
@@ -415,7 +436,7 @@
       background: rgba(255, 255, 255, 0.12);
       padding: 10px 12px;
       font-size: 12px;
-      font-weight: 800;
+      font-weight: 700;
     }
 
     .feature-grid {
@@ -427,10 +448,21 @@
     .feature {
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      background: var(--white);
+      background:
+        linear-gradient(180deg, #ffffff 0%, #fffbf5 100%);
       padding: 20px;
       min-height: 210px;
-      box-shadow: 0 10px 24px rgba(19, 34, 53, 0.06);
+      box-shadow: 3px 4px 0 rgba(24, 39, 58, 0.06);
+      transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    .feature:nth-child(2n) {
+      transform: translateY(8px);
+    }
+
+    .feature:hover {
+      transform: translateY(4px);
+      box-shadow: 5px 6px 0 rgba(255, 143, 134, 0.22);
     }
 
     .feature b {
@@ -444,7 +476,7 @@
       margin: 0;
       color: var(--ink-soft);
       font-size: 14px;
-      font-weight: 650;
+      font-weight: 500;
     }
 
     .feature-index {
@@ -456,8 +488,8 @@
       border: 2px solid var(--ink);
       border-radius: var(--radius);
       background: var(--sun);
-      font-weight: 950;
-      box-shadow: 4px 4px 0 rgba(19, 34, 53, 0.16);
+      font-weight: 800;
+      box-shadow: 3px 3px 0 rgba(24, 39, 58, 0.15);
     }
 
     .workflow {
@@ -473,11 +505,12 @@
       background: var(--paper);
       padding: 18px;
       min-height: 180px;
+      box-shadow: 3px 3px 0 rgba(118, 207, 198, 0.28);
     }
 
     .step-num {
       color: var(--coral);
-      font-weight: 950;
+      font-weight: 800;
       font-size: 13px;
     }
 
@@ -491,7 +524,7 @@
       margin: 0;
       color: var(--ink-soft);
       font-size: 14px;
-      font-weight: 650;
+      font-weight: 500;
     }
 
     .split {
@@ -506,7 +539,7 @@
       border-radius: var(--radius);
       background: var(--white);
       padding: 24px;
-      box-shadow: 0 10px 24px rgba(19, 34, 53, 0.05);
+      box-shadow: 3px 4px 0 rgba(24, 39, 58, 0.05);
     }
 
     .panel h3 {
@@ -526,7 +559,7 @@
       position: relative;
       padding-left: 26px;
       color: var(--ink-soft);
-      font-weight: 700;
+      font-weight: 500;
     }
 
     .list li::before {
@@ -559,12 +592,12 @@
     }
 
     .mode-name {
-      font-weight: 950;
+      font-weight: 800;
     }
 
     .mode-desc {
       color: var(--ink-soft);
-      font-weight: 650;
+      font-weight: 500;
     }
 
     .accent-band {
@@ -603,7 +636,7 @@
       display: block;
       color: rgba(255, 255, 255, 0.76);
       font-size: 13px;
-      font-weight: 650;
+      font-weight: 500;
     }
 
     .details {
@@ -622,14 +655,14 @@
     summary {
       cursor: pointer;
       padding: 17px 20px;
-      font-weight: 900;
+      font-weight: 800;
     }
 
     details p {
       margin: 0;
       padding: 0 20px 18px;
       color: var(--ink-soft);
-      font-weight: 650;
+      font-weight: 500;
     }
 
     .notice {
@@ -637,8 +670,8 @@
       border-radius: var(--radius);
       background: #fff3df;
       padding: 20px;
-      font-weight: 700;
-      box-shadow: 6px 6px 0 rgba(255, 129, 120, 0.45);
+      font-weight: 500;
+      box-shadow: 5px 5px 0 rgba(255, 143, 134, 0.38);
     }
 
     .footer {
@@ -646,7 +679,7 @@
       background: var(--ink);
       color: rgba(255, 255, 255, 0.74);
       font-size: 13px;
-      font-weight: 700;
+      font-weight: 500;
     }
 
     .footer-inner {
@@ -671,7 +704,7 @@
       .hero {
         min-height: auto;
         background:
-          linear-gradient(180deg, rgba(255, 250, 244, 0.95), rgba(255, 250, 244, 0.78)),
+          linear-gradient(180deg, rgba(255, 248, 239, 0.96), rgba(255, 248, 239, 0.80)),
           url("assets/hbs-logo.png") center 62% / 78vw auto no-repeat,
           var(--paper);
       }
@@ -687,6 +720,11 @@
       .overview,
       .split {
         grid-template-columns: 1fr;
+      }
+
+      .feature:nth-child(2n),
+      .feature:hover {
+        transform: none;
       }
 
       .mock-body {
@@ -764,19 +802,22 @@
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-inner">
         <img class="shop-logo" src="assets/hobohyakuen-shop-logo.png" alt="ほぼ100円ショップ">
-        <span class="eyebrow">VRChat avatar skin material workshop</span>
+        <span class="eyebrow">制作中の肌づくりツール / for VRChat avatars</span>
         <h1 id="hero-title">HBS Skin Editor</h1>
         <p class="hero-lead">
-          lilToonの使いやすさを残したまま、肌の色、影、質感、血色、ガラス化、水滴、傷表現までまとめて作れるUnity拡張ツールです。
+          肌色を少し整えたい日も、血色やガラス化まで作り込みたい日も。lilToonの安心感を残したまま、肌まわりの作業をひとつの窓にまとめます。
+        </p>
+        <p class="hand-note">
+          テスターさんの声を聞きながら、肌Materialで迷いやすいところを少しずつほどいているUnity拡張です。
         </p>
         <div class="hero-actions">
           <a class="button" href="#workflow">使い方を見る</a>
           <a class="button secondary" href="#features">できることを見る</a>
         </div>
         <div class="hero-points" aria-label="主な特徴">
-          <div class="hero-point">通常lilToonでできる設定は、そのままlilToonとして出力</div>
-          <div class="hero-point">必要な表現だけSkinCustomとして追加</div>
-          <div class="hero-point">アバター上へ直接描いてマスクを作成</div>
+          <div class="hero-point">いつものlilToon設定は、そのままlilToonで</div>
+          <div class="hero-point">足りない表現だけ、SkinCustomをそっと追加</div>
+          <div class="hero-point">マスクはアバターを見ながら直接ペイント</div>
         </div>
       </div>
     </section>
@@ -785,17 +826,17 @@
       <div class="container overview">
         <div>
           <div class="section-head">
-            <span class="label">Overview</span>
-            <h2>肌づくりを、Inspector探しから解放する。</h2>
+            <span class="label">どんなツール？</span>
+            <h2>肌づくりを、もう少し気軽に。</h2>
             <p class="section-copy">
-              HBS Skin Editorは、VRChatアバターの肌Materialを作るための専用Editor Windowです。lilToonの標準項目を肌向けに整理し、必要な時だけ独自のSkinCustom表現を足せるように設計しています。
+              HBS Skin Editorは、VRChatアバターの肌Materialを作るためのUnity拡張です。影や光沢を探してInspectorを行ったり来たりする時間を減らして、肌の見え方を確認しながら調整できるようにしました。
             </p>
           </div>
           <ul class="list">
-            <li>Avatar Root、肌Renderer、Materialをセットして作業開始</li>
-            <li>中央プレビューで選択Rendererだけ確認しながら調整</li>
-            <li>Material、Texture、Mesh、Animation、Animatorを名前ごとのフォルダへ整理</li>
-            <li>日本語UIと英語UIを切り替え可能</li>
+            <li>Avatar Root、肌Renderer、Materialを順番にセット</li>
+            <li>選択Rendererだけを見ながら、肌の色や影を調整</li>
+            <li>作ったMaterialやTextureは、名前ごとのフォルダへ整理</li>
+            <li>日本語UI / 英語UIを切り替え可能</li>
           </ul>
         </div>
 
@@ -815,7 +856,7 @@
             </div>
             <div class="avatar-stage">
               <div class="avatar-shape" aria-hidden="true"></div>
-              <div class="stage-note">Live Settings / Output Material Preview</div>
+              <div class="stage-note">Live Preview / Output Material</div>
             </div>
             <div class="mock-panel">
               <div class="mock-line accent"></div>
@@ -833,10 +874,10 @@
     <section class="section alt" id="features">
       <div class="container">
         <div class="section-head">
-          <span class="label">Features</span>
-          <h2>lilToon標準から、肌専用表現まで。</h2>
+          <span class="label">できること</span>
+          <h2>いつもの調整から、ちょっと特別な肌まで。</h2>
           <p class="section-copy">
-            最低限の肌調整だけでも使えて、こだわりたい時はマスク生成や独自質感まで進められます。
+            まずはプリセットで整えて、気になるところだけ手で描く。慣れてきたら血色、ガラス、水滴、傷表現まで広げられます。
           </p>
         </div>
 
@@ -844,32 +885,32 @@
           <article class="feature">
             <span class="feature-index">01</span>
             <b>肌Materialの作成と更新</b>
-            <p>新規Material生成、既存Material読み込み、RendererのMaterial Element選択、出力フォルダ整理に対応します。</p>
+            <p>新規作成も、いま使っているMaterialの読み込みも。RendererのElementを選んで、迷子になりにくい形で出力します。</p>
           </article>
           <article class="feature">
             <span class="feature-index">02</span>
             <b>lilToon標準設定を肌向けに整理</b>
-            <p>メインカラー、影、ノーマル、逆光ライト、光沢、MatCap、Rim、Emission、ラメなどをまとめて調整できます。</p>
+            <p>メインカラー、影、ノーマル、逆光ライト、光沢、MatCap、Rim、Emission、ラメ。肌でよく触る項目を近くに集めました。</p>
           </article>
           <article class="feature">
             <span class="feature-index">03</span>
             <b>肌プリセット</b>
-            <p>HBS Skin 1、HBS Skin 2、白リム、黒リムなどのプリセットから始められます。販売用に固有Textureを持ち込まない設計です。</p>
+            <p>HBS Skin 1、HBS Skin 2、白リム、黒リムなどから開始。アバター固有Textureを持ち込まない販売向けプリセットにしています。</p>
           </article>
           <article class="feature">
             <span class="feature-index">04</span>
             <b>マスクをアバターに直接描く</b>
-            <p>皮下の色反応、皮下血管、傷と血液、ガラス化などの範囲を、Scene上のアバターへ直接ペイントできます。</p>
+            <p>皮下の色反応、皮下血管、傷と血液、ガラス化などの範囲を、Scene上のアバターを見ながらその場で描けます。</p>
           </article>
           <article class="feature">
             <span class="feature-index">05</span>
             <b>テクスチャ生成</b>
-            <p>肌Normal Map、MatCap、各種マスクを生成できます。毛穴、肌表面のなめらかさ、タイリングも調整できます。</p>
+            <p>肌Normal Map、MatCap、各種マスクを生成。毛穴、なめらかさ、タイリングなど、質感の下ごしらえもまとめます。</p>
           </article>
           <article class="feature">
             <span class="feature-index">06</span>
             <b>水滴メッシュ生成</b>
-            <p>肌表面へ付着する水滴メッシュを生成します。密度、サイズ、ポリゴン数、重なり回避などを調整できます。</p>
+            <p>肌表面に付着する水滴メッシュを生成。密度、サイズ、ポリゴン数、重なり回避を見ながら詰められます。</p>
           </article>
         </div>
       </div>
@@ -878,10 +919,10 @@
     <section class="section" id="workflow">
       <div class="container">
         <div class="section-head">
-          <span class="label">Workflow</span>
-          <h2>作業の流れ</h2>
+          <span class="label">使い方</span>
+          <h2>最初の流れは、できるだけ一本道に。</h2>
           <p class="section-copy">
-            初めて触る人でも、Avatar Rootから順番に指定すれば作業できる流れです。
+            アバターRootから順番に指定して、Materialを作って、それから触る。初回で迷いやすいところをなるべく減らしています。
           </p>
         </div>
 
@@ -918,10 +959,10 @@
     <section class="accent-band" id="custom">
       <div class="container">
         <div class="section-head">
-          <span class="label">SkinCustom</span>
-          <h2>通常lilToonで足りない時だけ、独自表現を追加。</h2>
+          <span class="label">独自表現</span>
+          <h2>必要な時だけ、SkinCustomを足す。</h2>
           <p class="section-copy">
-            HBS Skin Editorは、何でもカスタムシェーダーにするツールではありません。通常lilToonで表現できる部分はlilToonを優先し、肌専用の特殊表現が必要な時だけSkinCustomへ切り替えます。
+            全部をカスタムにするのではなく、普通のlilToonで済むところはそのまま。皮下表現やガラス化のような、肌専用の描画が必要な時だけ切り替えます。
           </p>
         </div>
         <div class="accent-grid">
@@ -1003,10 +1044,10 @@
     <section class="section" id="faq">
       <div class="container">
         <div class="section-head">
-          <span class="label">FAQ</span>
+          <span class="label">よくある質問</span>
           <h2>よくある質問</h2>
           <p class="section-copy">
-            BOOTH説明やマニュアルにそのまま載せやすい、購入前の確認ポイントです。
+            購入前に気になりそうなところを、先に短くまとめました。
           </p>
         </div>
 
